@@ -1,0 +1,10 @@
+<mat-sidenav-container autosize class="example-container">
+  <mat-sidenav mode="side" opened>
+    <app-pokemon-list
+      (nouveauIdPokemon)="idPokemon=$event"
+    ></app-pokemon-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-pokemon-detail [idPokemon]="idPokemon"></app-pokemon-detail>
+  </mat-sidenav-content>
+</mat-sidenav-container>

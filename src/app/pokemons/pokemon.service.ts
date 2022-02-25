@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { catchError, tap, Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Pokemon, PokemonById } from '../models/pokemon.model';
 import { PagedData } from '../models/paged.data.model';
 
@@ -55,5 +55,19 @@ export class PokemonService {
       catchError(this.handleError<PagedData<Pokemon>>('getPokemonsByQueryParams'))
       );
   }
+
+  /* GET pokemons whose name contains search term */
+  searchPokemons(term: string): Observable<PagedData<Pokemon>> {
+    if (!term.trim()) {
+      return this.getPokemonsByQueryParams(0, 20);
+    }
+    const params = new HttpParams()
+      .set('search', term);
+    return this.http.get<PagedData<Pokemon>>(`${this.pokemonUrl}`, {params}).pipe(
+      tap(_ => this.log(`found pokemons matching "${term}"`)),
+      catchError(this.handleError<PagedData<Pokemon>>('searchPokemons'))
+    );
+  }
+
 
 }
