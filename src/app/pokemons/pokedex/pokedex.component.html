@@ -1,10 +1,37 @@
-<mat-sidenav-container autosize class="example-container">
-  <mat-sidenav mode="side" opened>
-    <app-pokemon-list
-      (nouveauIdPokemon)="idPokemon=$event"
-    ></app-pokemon-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <app-pokemon-detail [idPokemon]="idPokemon"></app-pokemon-detail>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+
+  <mat-sidenav-container autosize class="example-container">
+
+    <mat-sidenav mode="side" opened>
+
+      <mat-drawer-container class="container">
+        <mat-drawer id="team" mode="side" #team>
+          <app-pokemon-team
+            (nouveauIdPokemon)="idPokemon=$event"
+          >
+          </app-pokemon-team>
+        </mat-drawer>
+        <mat-drawer-content id="list">
+          <button mat-raised-button (click)="team.toggle()">Team</button>
+          <app-pokemon-list
+          (nouveauIdPokemon)="idPokemon=$event"
+          >
+          </app-pokemon-list>
+        </mat-drawer-content>
+      </mat-drawer-container>
+
+
+
+    </mat-sidenav>
+
+
+
+    <mat-sidenav-content class="pokemon-detail">
+      <app-pokemon-detail
+        [idPokemon]="idPokemon"
+      ></app-pokemon-detail>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+

@@ -1,5 +1,12 @@
 .liste-pokemons{
   overflow-y: scroll;
-  height: calc(100% - 71px);
+  height: 56vh;
 }
 
+h2{
+  margin-left: 10px;
+}
+
+#input{
+  margin-left: 5px;
+}

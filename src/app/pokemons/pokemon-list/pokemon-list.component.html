@@ -3,7 +3,10 @@
   infiniteScroll
   (scrolled)="onScroll()"
   [scrollWindow]="false">
-  <mat-form-field appearance="fill">
+  <h2>Liste de pokémons</h2>
+
+  <mat-form-field id="input" appearance="fill">
+
     <mat-label>Input</mat-label>
     <input matInput #searchBox (input)="search(searchBox.value)" />
   </mat-form-field>

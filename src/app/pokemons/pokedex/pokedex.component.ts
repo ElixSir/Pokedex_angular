@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ConnectionTeamComponent } from '../../connection/connection-team/connection-team.component';
 
 @Component({
   selector: 'app-pokedex',
@@ -7,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokedexComponent implements OnInit {
   idPokemon ?: number;
+  idAddPokemon ?: number;
+  idDeletePokemon ?: number;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }

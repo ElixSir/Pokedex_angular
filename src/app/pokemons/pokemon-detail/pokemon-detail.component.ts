@@ -1,22 +1,26 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonById } from 'src/app/models/pokemon.model';
 import { PokemonService } from '../pokemon.service';
 import { Location } from '@angular/common';
+import { PokemonTeamComponent } from '../pokemon-team/pokemon-team.component';
 
 
 @Component({
+  providers:[PokemonTeamComponent ],
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.scss']
 })
 export class PokemonDetailComponent implements OnInit, OnChanges{
   @Input() idPokemon ?: number;
+
   pokemon?: PokemonById;
 
   constructor(private route: ActivatedRoute,
     private pokemonService: PokemonService,
-    private location: Location) { }
+    private location: Location,
+    private pokemonTeam: PokemonTeamComponent) { }
 
   ngOnInit(): void {
     //this.getPokemonById();
@@ -44,5 +48,13 @@ export class PokemonDetailComponent implements OnInit, OnChanges{
 
   goBack(): void {
     this.location.back();
+  }
+
+  addTeam(idPoke: number): void {
+    this.pokemonService.addPokemonsTeam(idPoke);
+  }
+
+  deleteTeam(idPoke: number): void {
+    this.pokemonService.deletePokemonsTeam(idPoke);
   }
 }
