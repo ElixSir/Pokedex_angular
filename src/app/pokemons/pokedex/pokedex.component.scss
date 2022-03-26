@@ -1,8 +1,27 @@
 .example-container {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
+  margin: auto;
+  top: 220px;
   right: 0;
+  left: 0;
+  height: 500px;
+  width: fit-content;
   background: rgb(68, 64, 64);
+  border:solid;
+  border-color: grey;
 }
+
+.pokemon-detail{
+  overflow: hidden;
+}
+
+.mat-drawer-inner-container{
+  overflow: hidden;
+}
+#list{
+  width: 220px;
+}
+#team{
+  width: 170px;;
+}
+

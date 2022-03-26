@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
-import {MatListModule} from '@angular/material/list';
 import { PokemonsRoutingModule } from './pokemons-routing.module';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import {MatCardModule} from '@angular/material/card';
@@ -14,18 +13,22 @@ import { PokedexComponent } from './pokedex/pokedex.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatListModule} from '@angular/material/list';
+import { ReactiveFormsModule}   from '@angular/forms';
+import { PokemonTeamComponent } from './pokemon-team/pokemon-team.component';
+
 
 @NgModule({
   declarations: [
     PokemonListComponent,
     PokemonDetailComponent,
     PokedexComponent,
+    PokemonTeamComponent
 
 
   ],
   imports: [
     CommonModule,
-    MatListModule,
     PokemonsRoutingModule,
     MatCardModule,
     MatGridListModule,
@@ -35,7 +38,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     InfiniteScrollModule,
     MatSidenavModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatListModule,
+    ReactiveFormsModule,
   ],
 })
 export class PokemonsModule { }

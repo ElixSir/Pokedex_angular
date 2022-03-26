@@ -1,0 +1,19 @@
+
+<mat-nav-list
+  class="liste-pokemons"
+  >
+  <mat-list-item>
+    <h2>Team</h2>
+  </mat-list-item>
+
+  <mat-list-item mat-list-item (click)="renvoyerId(pokemon.id)" *ngFor="let pokemon of pokemons">
+    <img matListAvatar src="/../assets/img/sprites/{{pokemon.id}}.png"/>
+    <span>{{pokemon.id}}.{{ pokemon.name }}</span>
+  </mat-list-item>
+
+ </mat-nav-list>
+
+
+
+
+

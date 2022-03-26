@@ -40,10 +40,17 @@
       </mat-list>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">
-      <span class="top">{{pokemon.description}}</span>
+      <span id="desc" class="top">{{pokemon.description}}</span>
+
+      <button mat-raised-button id="addTeam" (click)="addTeam(pokemon.id)">Add</button>
+      <button mat-raised-button id="deleteTeam" (click)="deleteTeam(pokemon.id)">Delete</button>
     </mat-grid-tile>
 
+
+
+
   </mat-grid-list>
+
 </ng-container>
 
 
